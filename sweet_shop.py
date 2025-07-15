@@ -9,6 +9,7 @@ class SweetShop:
             'price': price
         }
         self.sweets.append(sweet)
+        print("current sweets list:", self.sweets)
 
     def get_all_sweets(self):
         return self.sweets
