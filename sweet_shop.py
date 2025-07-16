@@ -15,3 +15,10 @@ class SweetShop:
 
     def get_all_sweets(self):
         return self.sweets
+
+    def delete_sweet(self, sweet_id):
+        for sweet in self.sweets:
+            if sweet['id'] == sweet_id:
+                self.sweets.remove(sweet)
+                return True
+        return False
