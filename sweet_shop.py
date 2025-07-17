@@ -22,3 +22,11 @@ class SweetShop:
                 self.sweets.remove(sweet)
                 return True
         raise ValueError(f"No sweet found with ID: {sweet_id}")
+
+    def view_sweets(self):
+        if not self.sweets:
+            print("No sweets available.")
+        else:
+            print("Available sweets:")
+            for sweet in self.sweets:
+                print(f"ID: {sweet['id']}, Name: {sweet['name']}, Category: {sweet['category']}, Price: ₹{sweet['price']}, Qty: {sweet['qty']}")

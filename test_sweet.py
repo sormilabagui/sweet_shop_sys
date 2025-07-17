@@ -30,3 +30,16 @@ def test_delete_sweet_invalid_id():
         shop.delete_sweet(99)
 
     
+def test_get_all_sweets():
+    shop = SweetShop()
+    shop.add_sweet(1, "Rasgulla", "Milk-based", 20.0, 10)
+    shop.add_sweet(2, "Ladoo", "Gram-based", 15.0, 15)
+
+    sweets = shop.get_all_sweets()
+
+    expected = [
+        {'id': 1, 'name': 'Rasgulla', 'category': 'Milk-based', 'price': 20.0, 'qty': 10},
+        {'id': 2, 'name': 'Ladoo', 'category': 'Gram-based', 'price': 15.0, 'qty': 15}
+    ]
+
+    assert sweets == expected
