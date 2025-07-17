@@ -1,9 +1,9 @@
 class SweetShop:
     def __init__(self):
         self.sweets = []  # This will store our sweet dictionaries
-
+#adding sweets
     def add_sweet(self, sweet_id, name, category, price, quantity):
-        for sweet in self.sweets:
+        for sweet in self.sweets:                #checks for unique id
             if sweet['id'] == sweet_id:
                 raise ValueError(f"Sweet ID {sweet_id} already exists.")
         
@@ -17,9 +17,11 @@ class SweetShop:
         self.sweets.append(sweet)
         #print("current sweets list:", self.sweets)
 
+    
     def get_all_sweets(self):
         return self.sweets
 
+    
     def delete_sweet(self, sweet_id):
         for sweet in self.sweets:
             if sweet['id'] == sweet_id:
@@ -34,8 +36,8 @@ class SweetShop:
             print("Available sweets:")
             print(f"{'ID':<5} {'Name':<15} {'Category':<15} {'Price':<10} {'Qty':<5}")
             print("-" * 55)
-            for sweet in self.sweets:
-                print(f"{sweet['id']:<5} {sweet['name']:<15} {sweet['category']:<15} ₹{sweet['price']:<10} {sweet['qty']:<5}")
+            for sweet in self.sweets:                
+                print(f"{sweet['id']:<5} {sweet['name']:<15} {sweet['category']:<15} ₹{sweet['price']:<10} {sweet['qty']:<5}")    #formatted print statement
 
     def search_sweets_by_name(self, name):
         return [sweet for sweet in self.sweets if sweet['name'].lower() == name.lower()]
