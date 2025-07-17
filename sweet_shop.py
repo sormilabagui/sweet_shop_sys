@@ -45,3 +45,7 @@ class SweetShop:
 
     def search_sweets_by_price_range(self, min_price, max_price):
         return [sweet for sweet in self.sweets if min_price <= sweet['price'] <= max_price]
+
+
+    def sort_sweets_by_price(self):
+        return sorted(self.sweets, key=lambda x: x['price'])
