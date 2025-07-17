@@ -43,3 +43,13 @@ def test_get_all_sweets():
     ]
 
     assert sweets == expected
+
+def test_search_sweets_by_name():
+    shop = SweetShop()
+    shop.add_sweet(1, "Rasgulla", "Milk-based", 20.0, 10)
+    shop.add_sweet(2, "Ladoo", "Gram-based", 15.0, 15)
+
+    result = shop.search_sweets_by_name("Rasgulla")
+    
+    assert len(result) == 1
+    assert result[0]['name'] == "Rasgulla"
