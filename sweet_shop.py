@@ -52,3 +52,14 @@ class SweetShop:
 
     def sort_sweets_by_quantity(self):
         return sorted(self.sweets, key=lambda x: x['qty'])
+
+
+    def purchase_sweet(self, sweet_id, quantity):
+        for sweet in self.sweets:
+            if sweet['id'] == sweet_id:
+                if sweet['qty'] >= quantity:
+                    sweet['qty'] -= quantity
+                    return
+                else:
+                    raise ValueError(f"Not enough stock for sweet ID: {sweet_id}")
+        raise ValueError(f"No sweet found with ID: {sweet_id}")
