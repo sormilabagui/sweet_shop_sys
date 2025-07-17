@@ -91,3 +91,14 @@ def test_search_sweets_by_price_range():
     assert results[0]['name'] == "Rasgulla"
     assert results[1]['name'] == "Ladoo"
     assert results[2]['name'] == "Barfi"
+
+def test_sort_sweets_by_price():
+    shop = SweetShop()
+    shop.add_sweet(1, "Rasgulla", "Milk-based", 25.0, 15)
+    shop.add_sweet(2, "Ladoo", "Gram-based", 15.0, 10)
+    shop.add_sweet(3, "Barfi", "Milk-based", 20.0, 20)
+
+    sorted_sweets = shop.sort_sweets_by_price()
+    prices = [sweet['price'] for sweet in sorted_sweets]
+
+    assert prices == sorted(prices)
