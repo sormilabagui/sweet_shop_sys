@@ -63,3 +63,10 @@ class SweetShop:
                 else:
                     raise ValueError(f"Not enough stock for sweet ID: {sweet_id}")
         raise ValueError(f"No sweet found with ID: {sweet_id}")
+
+    def restock_sweet(self, sweet_id, quantity):
+        for sweet in self.sweets:
+            if sweet['id'] == sweet_id:
+                sweet['qty'] += quantity
+                return
+        raise ValueError(f"No sweet found with ID: {sweet_id}")
