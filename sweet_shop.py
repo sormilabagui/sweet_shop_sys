@@ -33,3 +33,9 @@ class SweetShop:
 
     def search_sweets_by_name(self, name):
         return [sweet for sweet in self.sweets if sweet['name'].lower() == name.lower()]
+
+    def search_sweet_by_id(self, sweet_id):
+        for sweet in self.sweets:
+            if sweet['id'] == sweet_id:
+                return sweet
+        return None  # or raise ValueError("Sweet not found") if test expects error
