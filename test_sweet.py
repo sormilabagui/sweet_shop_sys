@@ -139,3 +139,10 @@ def test_restock_sweet():
     sweets = shop.get_all_sweets()
 
     assert sweets[0]['qty'] == 15
+
+def test_add_sweet_duplicate_id():
+    shop = SweetShop()
+    shop.add_sweet(1001, "Kaju Katli", "Nut-based", 20.0, 30)
+    with pytest.raises(ValueError, match="Sweet ID 1001 already exists."):
+        shop.add_sweet(1001, "Duplicate", "Error-based", 10.0, 10)
+

@@ -11,7 +11,7 @@ class SweetShop:
             'qty' : quantity
         }
         self.sweets.append(sweet)
-        print("current sweets list:", self.sweets)
+        #print("current sweets list:", self.sweets)
 
     def get_all_sweets(self):
         return self.sweets
@@ -28,8 +28,10 @@ class SweetShop:
             print("No sweets available.")
         else:
             print("Available sweets:")
+            print(f"{'ID':<5} {'Name':<15} {'Category':<15} {'Price':<10} {'Qty':<5}")
+            print("-" * 55)
             for sweet in self.sweets:
-                print(f"ID: {sweet['id']}, Name: {sweet['name']}, Category: {sweet['category']}, Price: ₹{sweet['price']}, Qty: {sweet['qty']}")
+                print(f"{sweet['id']:<5} {sweet['name']:<15} {sweet['category']:<15} ₹{sweet['price']:<10} {sweet['qty']:<5}")
 
     def search_sweets_by_name(self, name):
         return [sweet for sweet in self.sweets if sweet['name'].lower() == name.lower()]
