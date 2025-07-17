@@ -122,3 +122,11 @@ def test_purchase_sweet_success():
     sweets = shop.get_all_sweets()
 
     assert sweets[0]['qty'] == 10
+
+
+def test_purchase_sweet_insufficient_stock():
+    shop = SweetShop()
+    shop.add_sweet(2, "Ladoo", "Gram-based", 15.0, 5)
+
+    with pytest.raises(ValueError, match="Not enough stock for sweet ID: 2"):
+        shop.purchase_sweet(2, 10)
