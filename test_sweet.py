@@ -113,3 +113,12 @@ def test_sort_sweets_by_quantity():
     quantities = [sweet['qty'] for sweet in sorted_sweets]
 
     assert quantities == sorted(quantities)
+
+def test_purchase_sweet_success():
+    shop = SweetShop()
+    shop.add_sweet(1, "Rasgulla", "Milk-based", 25.0, 15)
+
+    shop.purchase_sweet(1, 5)
+    sweets = shop.get_all_sweets()
+
+    assert sweets[0]['qty'] == 10
