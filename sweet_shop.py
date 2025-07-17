@@ -21,4 +21,4 @@ class SweetShop:
             if sweet['id'] == sweet_id:
                 self.sweets.remove(sweet)
                 return True
-        return False
+        raise ValueError(f"No sweet found with ID: {sweet_id}")
