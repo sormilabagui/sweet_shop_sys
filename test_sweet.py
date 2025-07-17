@@ -53,3 +53,15 @@ def test_search_sweets_by_name():
     
     assert len(result) == 1
     assert result[0]['name'] == "Rasgulla"
+
+def test_search_sweet_by_id():
+    shop = SweetShop()
+    shop.add_sweet(1, "Rasgulla", "Milk-based", 20.0, 10)
+    shop.add_sweet(2, "Ladoo", "Gram-based", 15.0, 15)
+
+    result = shop.search_sweet_by_id(2)
+
+    assert result['name'] == "Ladoo"
+    assert result['category'] == "Gram-based"
+    assert result['price'] == 15.0
+    assert result['qty'] == 15
