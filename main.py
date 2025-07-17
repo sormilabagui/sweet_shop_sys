@@ -37,7 +37,7 @@ def main():
                 quantity = int(input("Enter quantity: "))
                 shop.add_sweet(sweet_id, name, category, price, quantity)
                 print(" Sweet added successfully!")
-            except Exception as e:
+            except ValueError as e:
                 print(f" Error: {e}")
 
         elif ch == "2":
@@ -67,7 +67,7 @@ def main():
                         sweetid = int(input("Enter ID:"))
                         results = shop.search_sweet_by_id(sweetid)
                         if results:
-                            display_sweets(results)
+                            display_sweets([results])
                         else:
                             print("no sweet found with that id.")
                     except Exception as e:
@@ -84,7 +84,7 @@ def main():
                     if results:
                         display_sweets(results)
                     else:
-                        print("no sweet found with that id.")
+                        print("no sweet found with that category.")
 
                 elif search_choice == "4":
                     try:
