@@ -3,6 +3,10 @@ class SweetShop:
         self.sweets = []  # This will store our sweet dictionaries
 
     def add_sweet(self, sweet_id, name, category, price, quantity):
+        for sweet in self.sweets:
+            if sweet['id'] == sweet_id:
+                raise ValueError(f"Sweet ID {sweet_id} already exists.")
+        
         sweet = {
             'id' : sweet_id,
             'name': name,
