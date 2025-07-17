@@ -30,3 +30,6 @@ class SweetShop:
             print("Available sweets:")
             for sweet in self.sweets:
                 print(f"ID: {sweet['id']}, Name: {sweet['name']}, Category: {sweet['category']}, Price: ₹{sweet['price']}, Qty: {sweet['qty']}")
+
+    def search_sweets_by_name(self, name):
+        return [sweet for sweet in self.sweets if sweet['name'].lower() == name.lower()]
