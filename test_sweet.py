@@ -102,3 +102,14 @@ def test_sort_sweets_by_price():
     prices = [sweet['price'] for sweet in sorted_sweets]
 
     assert prices == sorted(prices)
+
+def test_sort_sweets_by_quantity():
+    shop = SweetShop()
+    shop.add_sweet(1, "Rasgulla", "Milk-based", 25.0, 15)
+    shop.add_sweet(2, "Ladoo", "Gram-based", 15.0, 10)
+    shop.add_sweet(3, "Barfi", "Milk-based", 20.0, 20)
+
+    sorted_sweets = shop.sort_sweets_by_quantity()
+    quantities = [sweet['qty'] for sweet in sorted_sweets]
+
+    assert quantities == sorted(quantities)
