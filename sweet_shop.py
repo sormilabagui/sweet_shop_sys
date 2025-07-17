@@ -49,3 +49,6 @@ class SweetShop:
 
     def sort_sweets_by_price(self):
         return sorted(self.sweets, key=lambda x: x['price'])
+
+    def sort_sweets_by_quantity(self):
+        return sorted(self.sweets, key=lambda x: x['qty'])
