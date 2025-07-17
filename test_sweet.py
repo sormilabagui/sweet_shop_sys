@@ -130,3 +130,12 @@ def test_purchase_sweet_insufficient_stock():
 
     with pytest.raises(ValueError, match="Not enough stock for sweet ID: 2"):
         shop.purchase_sweet(2, 10)
+
+def test_restock_sweet():
+    shop = SweetShop()
+    shop.add_sweet(1, "Barfi", "Milk-based", 25.0, 5)
+
+    shop.restock_sweet(1, 10)
+    sweets = shop.get_all_sweets()
+
+    assert sweets[0]['qty'] == 15
