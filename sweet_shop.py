@@ -39,3 +39,9 @@ class SweetShop:
             if sweet['id'] == sweet_id:
                 return sweet
         return None  # or raise ValueError("Sweet not found") if test expects error
+
+    def search_sweets_by_category(self, category):
+        return [sweet for sweet in self.sweets if sweet['category'].lower() == category.lower()]
+
+    def search_sweets_by_price_range(self, min_price, max_price):
+        return [sweet for sweet in self.sweets if min_price <= sweet['price'] <= max_price]

@@ -65,3 +65,29 @@ def test_search_sweet_by_id():
     assert result['category'] == "Gram-based"
     assert result['price'] == 15.0
     assert result['qty'] == 15
+
+def test_search_sweets_by_category():
+    shop = SweetShop()
+    shop.add_sweet(1, "Rasgulla", "Milk-based", 20.0, 10)
+    shop.add_sweet(2, "Ladoo", "Gram-based", 15.0, 5)
+    shop.add_sweet(3, "Barfi", "Milk-based", 25.0, 7)
+
+    results = shop.search_sweets_by_category("Milk-based")
+    
+    assert len(results) == 2
+    assert results[0]['name'] == "Rasgulla"
+    assert results[1]['name'] == "Barfi"
+
+def test_search_sweets_by_price_range():
+    shop = SweetShop()
+    shop.add_sweet(1, "Rasgulla", "Milk-based", 20.0, 10)
+    shop.add_sweet(2, "Ladoo", "Gram-based", 15.0, 5)
+    shop.add_sweet(3, "Barfi", "Milk-based", 25.0, 7)
+    shop.add_sweet(4, "Jalebi", "Sugar-based", 30.0, 4)
+
+    results = shop.search_sweets_by_price_range(15.0, 25.0)
+    
+    assert len(results) == 3
+    assert results[0]['name'] == "Rasgulla"
+    assert results[1]['name'] == "Ladoo"
+    assert results[2]['name'] == "Barfi"
